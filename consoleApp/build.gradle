@@ -1,0 +1,31 @@
+
+version = '0.7.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile("org.springframework.boot:spring-boot-starter-web:1.5.6.RELEASE")
+
+    testCompile ("org.springframework.boot:spring-boot-starter-test:1.5.6.RELEASE")
+
+}
+
+//Wrapper
+task wrapper(type: Wrapper) {
+    description = 'Generates gradlew[.bat] scripts'
+    gradleVersion = '3.5'
+}
+
+//Compile
+compileJava {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
