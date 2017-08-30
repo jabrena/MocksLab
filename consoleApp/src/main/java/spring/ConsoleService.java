@@ -1,6 +1,6 @@
 package spring;
 
-public interface SimpleService {
+public interface ConsoleService {
 
     String hello(String name);
 

@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Configuration;
 public class ConsoleAppConfiguration {
 
     @Bean
-    public SimpleService simpleService() {
-        return new SimpleServiceImpl();
+    public ConsoleService simpleService() {
+        return new ConsoleServiceImpl();
     }
 
 }

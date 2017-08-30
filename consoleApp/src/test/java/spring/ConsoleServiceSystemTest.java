@@ -12,10 +12,10 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ConsoleAppConfiguration.class)
-public @Slf4j class SimpleServiceSystemTest {
+public @Slf4j class ConsoleServiceSystemTest {
 
     @Autowired
-    SimpleService simpleService;
+    ConsoleService simpleService;
 
     @Test
     public void hello() throws Exception {

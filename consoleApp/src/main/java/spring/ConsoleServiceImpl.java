@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * Created by jabrena on 30/8/17.
  */
-public @Slf4j class SimpleServiceImpl implements SimpleService {
+public @Slf4j class ConsoleServiceImpl implements ConsoleService {
 
     @Override
     public String hello(String name) {
