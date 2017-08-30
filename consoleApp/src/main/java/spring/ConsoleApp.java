@@ -1,11 +1,12 @@
 package spring;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public @Slf4j class ConsoleApp {
+public @Slf4j class ConsoleApp implements CommandLineRunner {
 
     private SimpleService simpleService;
 
@@ -13,15 +14,8 @@ public @Slf4j class ConsoleApp {
         this.simpleService = simpleService;
     }
 
-    public static void main(String[] args){
-
-        SpringApplication app = new SpringApplication(ConsoleApp.class);
-        app.run(args);
-
-    }
-
-    private void run(String[] args) {
-
+    @Override
+    public void run(String[] args) {
         LOGGER.info("Running");
 
         if (args.length > 0) {
@@ -29,8 +23,9 @@ public @Slf4j class ConsoleApp {
         } else {
             LOGGER.info(simpleService.hello("world"));
         }
-
-        System.exit(0);
     }
 
+    public static void main(String[] args) {
+        SpringApplication.run(ConsoleApp.class, args);
+    }
 }
