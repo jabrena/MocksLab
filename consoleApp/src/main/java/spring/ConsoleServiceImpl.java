@@ -7,10 +7,15 @@ import lombok.extern.slf4j.Slf4j;
  */
 public @Slf4j class ConsoleServiceImpl implements ConsoleService {
 
+    private final String BAD_NAME = "BAD_NAME";
+
     @Override
-    public String hello(String name) {
+    public String hello(final String name) throws ConsoleBusinessException {
 
         LOGGER.info("Executing method Hello");
+        if(name.equals(BAD_NAME)) {
+            throw new ConsoleBusinessException("Bad Name");
+        }
         return "hello " + name;
     }
 }

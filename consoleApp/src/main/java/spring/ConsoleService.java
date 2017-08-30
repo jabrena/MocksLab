@@ -2,6 +2,6 @@ package spring;
 
 public interface ConsoleService {
 
-    String hello(String name);
+    String hello(String name) throws ConsoleBusinessException;
 
 }

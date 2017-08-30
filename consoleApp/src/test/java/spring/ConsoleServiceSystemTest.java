@@ -22,4 +22,9 @@ public @Slf4j class ConsoleServiceSystemTest {
         assertThat(simpleService.hello("world"), is("hello world"));
     }
 
+    @Test(expected = ConsoleBusinessException.class)
+    public void helloWithBadArgument() throws Exception {
+        simpleService.hello("BAD_NAME");
+    }
+
 }

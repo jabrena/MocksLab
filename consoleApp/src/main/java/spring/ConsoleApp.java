@@ -15,7 +15,7 @@ public @Slf4j class ConsoleApp implements CommandLineRunner {
     }
 
     @Override
-    public void run(String[] args) {
+    public void run(String[] args) throws ConsoleBusinessException {
         LOGGER.info("Running");
 
         if (args.length > 0) {
