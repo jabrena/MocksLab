@@ -1,29 +1,30 @@
 package spring;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
-public class SimpleServiceTest {
+@SpringBootTest(classes = ConsoleAppConfiguration.class)
+public @Slf4j class ConsoleServiceSystemTest {
 
-    @MockBean
-    SimpleService simpleService;
+    @Autowired
+    ConsoleService simpleService;
 
     @Test
     public void hello() throws Exception {
-
-        when(simpleService.hello(anyString())).thenReturn("hello world");
-
         assertThat(simpleService.hello("world"), is("hello world"));
+    }
+
+    @Test(expected = ConsoleBusinessException.class)
+    public void helloWithBadArgument() throws Exception {
+        simpleService.hello("BAD_NAME");
     }
 
 }

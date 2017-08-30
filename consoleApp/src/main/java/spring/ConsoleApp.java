@@ -8,14 +8,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public @Slf4j class ConsoleApp implements CommandLineRunner {
 
-    private SimpleService simpleService;
+    private ConsoleService simpleService;
 
-    public ConsoleApp(SimpleService simpleService){
+    public ConsoleApp(ConsoleService simpleService){
         this.simpleService = simpleService;
     }
 
     @Override
-    public void run(String[] args) {
+    public void run(String[] args) throws ConsoleBusinessException {
         LOGGER.info("Running");
 
         if (args.length > 0) {
